@@ -52,8 +52,8 @@ The system uses Factory Method to centralize how `Book` and `User` objects are c
 ---
 
 ### 2) Singleton (Creational)
-Singleton ensures that global resources like the library catalog or notification center exist as a single instance. Instead of creating multiple copies or passing references everywhere, the system provides one shared instance that all components access. This prevents inconsistencies and simplifies management compared to manually coordinating shared objects.  
-**Why it fits PageWise:** The catalog and notification center must remain consistent and accessible to all users.
+The `Database` is implemented as a Singleton to ensure there is one—and only one—central store of all library data, including books, users, and borrowings. Any component that needs to access or update the catalog, borrowing records, or user registry calls `Database.getInstance()` to work with this shared resource. This prevents inconsistencies, because all changes are always reflected system-wide, and components do not need to manually coordinate shared objects or manage references.  
+**Why it fits PageWise:** The database must remain fully consistent and accessible to all users and system modules, ensuring that everyone sees the same up-to-date information at all times.
 
 ---
 
